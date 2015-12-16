@@ -1,0 +1,293 @@
+// Constant Variables:
+const int  buttonPin = 2;    // the pin that the pushbutton is attached to
+const int valveOne = 13;    //CLAY
+const int valveTwo = 12;    //GRAVEL
+const int valveThree = 11;  //SAND
+const int valveFour = 10;   //CEMENT
+
+// Changing Variables:
+int buttonPushCounter = 0;   // counter for the number of button presses
+int buttonState = 0;         // current state of the button
+int lastButtonState = 0;     // previous state of the button
+
+
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(buttonPin, INPUT);
+  pinMode(valveOne, OUTPUT);
+  pinMode(valveTwo, OUTPUT);
+  pinMode(valveThree, OUTPUT);
+  pinMode(valveFour, OUTPUT);
+ 
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  //Button push counter
+
+  buttonState = digitalRead(buttonPin);
+
+  // compare the buttonState to its previous state
+  if (buttonState != lastButtonState) {
+    // if the state has changed, increment the counter
+    if (buttonState == HIGH) {
+      // if the current state is HIGH then the button
+      // wend from off to on:
+      buttonPushCounter++;
+      Serial.println("on");
+      Serial.print("number of button pushes:  ");
+      Serial.println(buttonPushCounter);
+    } else {
+      // if the current state is LOW then the button
+      // wend from on to off:
+      Serial.println("off");
+    }
+    // Delay a little bit to avoid bouncing
+    delay(50);
+    
+  //LOCATION 1: http://data.geus.dk/JupiterWWW/document.jsp?fileid=1864332
+
+  if (buttonPushCounter == 1){
+    Serial.println("location one");
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(10);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, HIGH);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(750);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, HIGH);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(770);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(790);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(1000);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+    delay(1300);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, HIGH);
+    delay(1500);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);    
+  }
+
+//LOCATION 2:  http://data.geus.dk/JupiterWWW/document.jsp?fileid=1863779
+
+  if (buttonPushCounter == 2){
+    Serial.println("location two");
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(10);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(160);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(180);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(370);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(650);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(740);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(1000);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(1300);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, HIGH);
+    delay(1500);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW); 
+  }
+
+//LOCATION 3:  http://data.geus.dk/JupiterWWW/document.jsp?fileid=1863370
+
+  if (buttonPushCounter == 3){
+    Serial.println("location three");
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(10);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(440);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(540);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(600);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(720);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, HIGH);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(865);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(1000);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(1300);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, HIGH);
+    delay(1500);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW); 
+  }
+
+//LOCATION 4:  http://data.geus.dk/JupiterWWW/document.jsp?fileid=1862551
+
+  if (buttonPushCounter == 4){
+    Serial.println("location four");
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(10);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(380);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(400);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, HIGH);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(410);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(420);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(430);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(440);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(450);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(460);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, HIGH);
+      digitalWrite(valveFour, LOW);
+    delay(680);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, HIGH);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(770);
+      digitalWrite(valveOne, HIGH);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW);
+    delay(1300);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, HIGH);
+    delay(1500);
+      digitalWrite(valveOne, LOW);
+      digitalWrite(valveTwo, LOW);
+      digitalWrite(valveThree, LOW);
+      digitalWrite(valveFour, LOW); 
+  }
+
+    
+  }
+  
+  lastButtonState = buttonState;
+
+  if(buttonPushCounter == 5) {
+    buttonPushCounter = 0;
+  }
+
+
+
+  //if button is pushed 4 times, reset and run from beginning again
+
+}
